@@ -368,3 +368,12 @@ span{
         margin-top: 4rem;
     }
 }
+
+span {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
