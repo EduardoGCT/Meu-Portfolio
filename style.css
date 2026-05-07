@@ -391,38 +391,60 @@ span {
 
 /* Seção Sobre Mim */
 .sobre-mim {
-    padding: 40px 20px;
-    background: linear-gradient(to bottom, #000000, #34026e);
-    display: block;
+    padding: 60px 0 60px 0;
+    background: linear-gradient(to bottom, #000000, #1a013a);
     border-top: 10px solid;
     border-image-source: linear-gradient(to right, #000000, #34026e);
     border-image-slice: 1;
 }
 
-.sobre-conteudo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+.sobre-container {
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    /* Garante responsividade */
+    margin: 10 auto;
+}
+
+.sobre-flex {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 80px; /* Distância suave entre texto e terminal */
+    width: 100%;
+}
+
+.sobre-conteudo {
+    background: rgba(52, 2, 110, 0.20);
+    backdrop-filter: blur(10px);
+    border-left: 5px solid #7700ff;
+    padding: 40px 30px 40px 10px;
+    max-width: 600px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    min-width: 320px;
 }
 
 .sobre-txt {
     flex: 1;
     min-width: 300px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #cccccc;
+    text-align: left;
 }
 
 .titulo-section {
-    font-size: 6rem;
+    font-size: 3rem;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    text-spacing-trim: 10px;
-    gap: 6px;
+    margin-bottom: 15px;
+    letter-spacing: 0.03em;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -441,10 +463,11 @@ span {
     display: flex;
     justify-content: left;
     align-items: baseline;
-
+    flex: 1;
+    min-width: 320px; 
+    max-width: 600px;
 }
 
-/* Estilo dos Botões e Ícones */
 .btn-redes {
     display: flex;
     gap: 15px;
@@ -476,14 +499,209 @@ span {
     color: #007bff;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
+.sobre-info-extra {
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding-top: 20px;
+}
+
+.sobre-info-extra h3{
+    color:#7700ff;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+}
+
+.sobre-info-extra ul{
+    list-style: none;
+    display: flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    padding: 0;
+}
+
+.sobre-info-extra li {
+    background: #34026e;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+}
+
+/* Terminal Simulado */
+.terminal-widget {
+    background: rgba(20, 10, 40, 0.85); /* vidro escuro, puxando roxo */
+    border: 1.5px solid #7700ff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(70, 0, 100, 0.35), 0 1.5px 0 #34026e inset;
+    font-family: 'Fira Code', 'Menlo', 'DejaVu Sans Mono', monospace;
+    overflow: hidden;
+    max-width: 400px;
+    min-width: 320px;
+    margin-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    backdrop-filter: blur(9px) brightness(1.07);
+    animation: glowterm 3.2s ease-in-out infinite alternate;
+    height: 50vh;
+}
+
+@keyframes glowterm {
+    from { box-shadow: 0 0 12px 0 #7700ff22, 0 10px 30px rgba(70,0,100,0.35); }
+    to   { box-shadow: 0 0 30px 7px #7700ff66, 0 10px 30px rgba(70,0,100,0.39);}
+}
+
+.terminal-header {
+    background: linear-gradient(90deg, #1a1a2e 70%, #34026e 100%);
+    padding: 8px 15px 8px 15px;
+    color: #b493ff;
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    position: relative;
+    user-select: none;
+    border-bottom: 1.5px solid #34026e;
+    min-height: 33px;
+}
+
+/* “Leds”/Botões estilo terminal (verde, amarelo, vermelho) */
+.terminal-header::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 85%;
+    top: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 0 #000,
+      0 0 0 4px #2c2142,
+      16px 0 #ffaa00,  /* amarelo */
+      32px 0 #00d26a;  /* verde */
+    background: #ff4c4c; /* vermelho */
+}
+
+.terminal-body {
+    background: transparent;
+    padding: 18px 15px 12px 17px;
+    min-height: 180px;
+    color: #e5ebfa;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    font-family: inherit;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    text-shadow: 0 1px 3px #2c2142, 0 0 1px #7700ff99;
+    flex: 1;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 5px;
+}
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #41356b;
+    border-radius: 5px;
+}
+
+/* Linha de Input */
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 10px 17px 10px 19px;
+    background: rgba(255, 255, 255, 0.03);
+    gap: 10px;
+    border-top: 1px solid #29003e44;
+}
+
+.terminal-input-line span {
+    color: #00ffae;
+    font-weight: bold;
+    font-size: 1.08em;
+    margin-right: 2px;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: #fafaff;
+    outline: none;
+    flex: 1;
+    font-family: inherit;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+}
+
+.prompt {
+    color: #00ffae;
+}
+
+
+/* Responsividade melhorada */
+@media (max-width: 1020px) {
+    .sobre-flex {
+        gap: 20px;
+    }
     .sobre-conteudo {
+        padding: 30px 10px 30px 5px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sobre-flex {
         flex-direction: column;
+        align-items: center;
+        gap: 28px;
+    }
+    .sobre-container {
+        padding: 0 10px;
+    }
+    .sobre-conteudo,
+    .terminal-widget {
+        max-width: 100%;
+        width: 100%;
+        min-width: unset;
+        box-sizing: border-box;
+        min-height: 60vh;
+        max-height: 50vh;
+        overflow-y: scroll; 
+        display: block; 
+        position: relative;
+        height: 50vh;
+    }
+    .sobre-conteudo {
+        border-radius: 15px;
+        border-left: 0;
+        border-top: 5px solid #7700ff;
+    }
+    .terminal-widget {
+        margin-top: 0;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 600px) {
+    .sobre-flex {
+        gap: 12px;
+    }
+    .sobre-conteudo,
+    .terminal-widget {
+        padding: 18px 5px;
+        height: 60vh; 
+        min-height: 60vh;
+        max-height: 60vh;
+        overflow-y: scroll; 
+        display: block; 
+        position: relative;
+    }
+    .titulo-section {
+        font-size: 1.7rem;
         text-align: center;
     }
-
-    .btn-redes {
-        justify-content: center;
+    .terminal-body {
+        min-height: 90px;
+        font-size: 0.93rem;
     }
 }
