@@ -401,7 +401,7 @@ span {
 .sobre-container {
     width: 100%;
     max-width: 1200px;
-    margin: 10 auto;
+    margin: 0 auto;
 }
 
 .sobre-flex {
