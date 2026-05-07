@@ -529,9 +529,9 @@ span {
 /* Terminal Simulado */
 .terminal-widget {
     background: rgba(20, 10, 40, 0.85); /* vidro escuro, puxando roxo */
-    border: 1.5px solid #7700ff;
+    border: 1.5px solid #6d2fb4;
     border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(70, 0, 100, 0.35), 0 1.5px 0 #34026e inset;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
     font-family: 'Fira Code', 'Menlo', 'DejaVu Sans Mono', monospace;
     overflow: hidden;
     max-width: 400px;
@@ -542,7 +542,6 @@ span {
     flex-direction: column;
     position: relative;
     backdrop-filter: blur(9px) brightness(1.07);
-    animation: glowterm 3.2s ease-in-out infinite alternate;
     height: 50vh;
 }
 

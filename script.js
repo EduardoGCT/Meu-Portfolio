@@ -31,7 +31,7 @@ input.addEventListener('keydown', (e) => {
         } 
         
         if (command === 'skills') {
-            response = "Python, Django, React, Linux, SQL.";
+            response = "Python, Django, React, HTML & CSS, JavaScript, C, Linux (arch/hyprland), SQL.";
         } else if (command === 'status') {
             response = "3º Semestre de CC | Buscando Estágio.";
         } else if (command === 'help') {
