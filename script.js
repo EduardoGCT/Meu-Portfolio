@@ -62,6 +62,57 @@ window.addEventListener('scroll', updateActiveOnScroll);
 window.addEventListener('resize', updateActiveOnScroll);
 updateActiveOnScroll();
 
+// Acordeao dos projetos no mobile
+const projectRows = Array.from(document.querySelectorAll('.project-row'));
+const projectAccordionQuery = window.matchMedia('(max-width: 900px)');
+
+const setProjectState = (row, expanded) => {
+    row.classList.toggle('is-collapsed', !expanded);
+    const toggle = row.querySelector('.project-toggle');
+    const label = row.querySelector('.project-toggle-text');
+    if (toggle) {
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+    if (label) {
+        label.textContent = expanded ? 'Fechar detalhes' : 'Ver detalhes';
+    }
+};
+
+const syncProjectAccordion = () => {
+    const isMobile = projectAccordionQuery.matches;
+    projectRows.forEach((row) => {
+        const toggle = row.querySelector('.project-toggle');
+        if (!toggle) return;
+        if (isMobile) {
+            if (!row.classList.contains('is-collapsed') && !row.classList.contains('is-expanded')) {
+                row.classList.add('is-collapsed');
+            }
+            setProjectState(row, !row.classList.contains('is-collapsed'));
+            toggle.disabled = false;
+        } else {
+            row.classList.remove('is-collapsed');
+            row.classList.remove('is-expanded');
+            setProjectState(row, true);
+            toggle.disabled = true;
+        }
+    });
+};
+
+projectRows.forEach((row) => {
+    const toggle = row.querySelector('.project-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+        if (!projectAccordionQuery.matches) return;
+        const isCollapsed = row.classList.contains('is-collapsed');
+        row.classList.toggle('is-collapsed');
+        row.classList.toggle('is-expanded', isCollapsed);
+        setProjectState(row, isCollapsed);
+    });
+});
+
+syncProjectAccordion();
+projectAccordionQuery.addEventListener('change', syncProjectAccordion);
+
 // Animacoes de entrada (uma vez por elemento)
 document.body.classList.add('js-enabled');
 
@@ -70,6 +121,7 @@ const revealGroups = [
     { selector: '.titulo-section, .sobre-txt, .sobre-info-extra', baseDelay: 0, step: 90 },
     { selector: '.sobre-conteudo', baseDelay: 0, step: 0, className: 'reveal-left' },
     { selector: '.terminal-widget', baseDelay: 120, step: 0, className: 'reveal-right reveal-pop' },
+    { selector: '.sobre-estudos', baseDelay: 160, step: 0, className: 'reveal-pop' },
     { selector: '.project-row:not(.project-row--reverse) .project-media', baseDelay: 0, step: 120, className: 'reveal-left' },
     { selector: '.project-row:not(.project-row--reverse) .project-content', baseDelay: 80, step: 120, className: 'reveal-right' },
     { selector: '.project-row--reverse .project-media', baseDelay: 0, step: 120, className: 'reveal-right' },
@@ -77,7 +129,10 @@ const revealGroups = [
     { selector: '.contato-card', baseDelay: 0, step: 0, className: 'reveal-pop' },
     { selector: '.contato .titulo-section, .contato-text', baseDelay: 60, step: 90 },
     { selector: '.contact-links a', baseDelay: 140, step: 90, className: 'reveal-pop' },
-    { selector: 'footer#contacts', baseDelay: 0, step: 0 }
+    { selector: '.contato-extra', baseDelay: 120, step: 0, className: 'reveal-pop' },
+    { selector: '.contato-extra-item', baseDelay: 160, step: 90, className: 'reveal-pop' },
+    { selector: '.footer-brand, .footer-links, .footer-social', baseDelay: 0, step: 120, className: 'reveal-pop' },
+    { selector: '.footer-bottom', baseDelay: 180, step: 0 }
 ];
 
 const revealTargets = new Set();

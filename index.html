@@ -84,6 +84,13 @@
                     </div>
                 </div>
                 </div>
+                <div class="sobre-estudos">
+                    <h3>Estudando <span>agora</span></h3>
+                    <ul class="sobre-estudos-list">
+                        <li>Java</li>
+                        <li>React</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -93,11 +100,16 @@
 
                 <div class="projects-list">
                     <article class="project-row">
+                        <span class="project-peek" aria-hidden="true"></span>
                         <div class="project-media">
                             <span class="project-media-label">Imagem</span>
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Projeto 01</h3>
+                            <button class="project-toggle" type="button" aria-expanded="false">
+                                <span class="project-toggle-text">Ver detalhes</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
                             <p class="project-desc">
                                 Aqui vai ficar a descrição
                             </p>
@@ -108,11 +120,16 @@
                     </article>
 
                     <article class="project-row project-row--reverse">
+                        <span class="project-peek" aria-hidden="true"></span>
                         <div class="project-media">
                             <span class="project-media-label">Imagem</span>
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Projeto 02</h3>
+                            <button class="project-toggle" type="button" aria-expanded="false">
+                                <span class="project-toggle-text">Ver detalhes</span>
+                                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                            </button>
                             <p class="project-desc">
                                 Aqui vai ficar a descrição
                             </p>
@@ -154,10 +171,59 @@
                     </a>
                 </div>
             </div>
+
+            <div class="contato-extra" aria-label="Informacoes de contato">
+                <div class="contato-extra-item">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <div>
+                        <h3>Localizacao</h3>
+                        <p>Rio de Janeiro, Brasil</p>
+                    </div>
+                </div>
+                <div class="contato-extra-item">
+                    <i class="fa-solid fa-signal" aria-hidden="true"></i>
+                    <div>
+                        <h3>Status</h3>
+                        <p>Disponivel para freelas e estagio</p>
+                    </div>
+                </div>
+                <div class="contato-extra-item">
+                    <i class="fa-solid fa-reply" aria-hidden="true"></i>
+                    <div>
+                        <h3>Resposta rapida</h3>
+                        <p>Normalmente em ate 24h</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <footer class="footer" id="footer">
-        <p>&copy; 2026 Eduardo Castro. Todos os direitos reservados.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Eduardo Castro</h3>
+                <p>Construo produtos web com foco em performance e clareza.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Atalhos</h4>
+                <div class="footer-nav">
+                    <a href="#">Inicio</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#projects">Projetos</a>
+                    <a href="#contato">Contato</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h4>Redes</h4>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/eduardo-gomes-de-castro-terra-628062269/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/EduardoGCT" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/gambs01/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eduardo Castro. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 
