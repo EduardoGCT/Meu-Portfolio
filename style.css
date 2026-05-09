@@ -784,7 +784,6 @@ span {
     max-width: 520px;
     width: 100%;
     background: rgba(52, 2, 110, 0.2);
-    border: 1px solid rgba(119, 0, 255, 0.35);
     border-left: 5px solid #7700ff;
     border-radius: 0 20px 20px 0;
     padding: 22px 26px;
@@ -1342,14 +1341,6 @@ span {
 }
 
 @media (max-width: 900px) {
-    .projects-container {
-        padding: 0 10px;
-    }
-
-    .projects .titulo-section {
-        padding: 0 10px;
-    }
-
     .projects-list {
         gap: 24px;
     }
