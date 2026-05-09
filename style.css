@@ -17,7 +17,8 @@ html {
 
 body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     overflow-x: hidden;
     background-color: rgb(0, 0, 0);
     color: white;
@@ -81,6 +82,28 @@ body.js-enabled .reveal.reveal-pop.is-visible {
         opacity: 1;
         transform: translateY(0) scale(1);
         filter: blur(0);
+    }
+}
+
+@keyframes hero-up-lite {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-pop-lite {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -507,6 +530,8 @@ span {
 @media (max-width: 768px) {
     header {
         padding: 1rem 6%;
+        backdrop-filter: none;
+        filter: none;
     }
 
     .logo {
@@ -524,6 +549,57 @@ span {
 
     .home-content h3 {
         font-size: clamp(2.2rem, 5vw, 3.2rem);
+    }
+
+    body.js-enabled .reveal,
+    body.js-enabled .reveal.reveal-left,
+    body.js-enabled .reveal.reveal-right,
+    body.js-enabled .reveal.reveal-pop {
+        opacity: 0;
+        transform: translateY(10px);
+        filter: none;
+        transition: opacity 320ms ease, transform 320ms ease;
+    }
+
+    body.js-enabled .reveal.reveal-left {
+        transform: translateX(-10px);
+    }
+
+    body.js-enabled .reveal.reveal-right {
+        transform: translateX(10px);
+    }
+
+    body.js-enabled .reveal.reveal-pop {
+        transform: translateY(8px) scale(0.99);
+    }
+
+    body.js-enabled .reveal.is-visible,
+    body.js-enabled .reveal.reveal-left.is-visible,
+    body.js-enabled .reveal.reveal-right.is-visible,
+    body.js-enabled .reveal.reveal-pop.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    .sobre-conteudo,
+    .terminal-widget {
+        backdrop-filter: none;
+    }
+
+    body.page-loaded .home-content {
+        animation: hero-up-lite 700ms ease both;
+    }
+
+    body.page-loaded .home-img img {
+        animation: hero-pop-lite 700ms ease both;
+    }
+
+    body.page-loaded .social-icons a {
+        animation: hero-up-lite 600ms ease both;
+    }
+
+    body.page-loaded .home .btn {
+        animation: hero-up-lite 600ms ease both;
     }
 }
 
@@ -830,12 +906,12 @@ span {
         width: 100%;
         min-width: unset;
         box-sizing: border-box;
-        min-height: 60vh;
-        max-height: 50vh;
-        overflow-y: scroll; 
+        min-height: unset;
+        max-height: none;
+        overflow: visible; 
         display: block; 
         position: relative;
-        height: 50vh;
+        height: auto;
     }
     .sobre-conteudo {
         border-radius: 15px;
@@ -847,6 +923,10 @@ span {
         border-radius: 15px;
         overflow: hidden;
     }
+
+    .sobre-txt p {
+        padding: 5px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -856,10 +936,10 @@ span {
     .sobre-conteudo,
     .terminal-widget {
         padding: 18px 5px;
-        height: 60vh; 
-        min-height: 60vh;
-        max-height: 60vh;
-        overflow-y: scroll; 
+        height: auto; 
+        min-height: unset;
+        max-height: none;
+        overflow: visible; 
         display: block; 
         position: relative;
     }
