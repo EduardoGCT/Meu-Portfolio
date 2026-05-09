@@ -567,7 +567,7 @@ span {
         opacity: 0;
         transform: translateY(10px);
         filter: none;
-        transition: opacity 320ms ease, transform 320ms ease;
+        transition: opacity 700ms ease, transform 700ms ease;
     }
 
     body.js-enabled .reveal.reveal-left {
@@ -596,15 +596,15 @@ span {
     }
 
     body.page-loaded .home-content {
-        animation: hero-up-lite 700ms ease both;
+        animation: hero-up-lite 900ms ease both;
     }
 
     body.page-loaded .home-img img {
-        animation: hero-pop-lite 700ms ease both;
+        animation: hero-pop-lite 900ms ease both;
     }
 
     body.page-loaded .social-icons a {
-        animation: hero-up-lite 600ms ease both;
+        animation: hero-up-lite 700ms ease both;
     }
 
     body.page-loaded .home .btn {
@@ -612,7 +612,7 @@ span {
     }
 
     .home .btn.reveal.is-visible {
-        animation: cta-float 3.2s ease-in-out 0.6s infinite;
+        animation: cta-float 4s ease-in-out 0.6s infinite;
     }
 }
 
