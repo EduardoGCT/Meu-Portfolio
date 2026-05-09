@@ -374,17 +374,14 @@ span {
 .home-img {
     border-radius: 20%;
 
-    /* Versão para navegadores baseados em Webkit (Chrome, Safari, Edge) */
     -webkit-mask-image: radial-gradient(circle,
             black 50%,
             transparent 100%);
 
-    /* Versão padrão */
     mask-image: radial-gradient(circle,
             rgb(0, 0, 0) 30%,
             transparent 100%);
 
-    /* Garante que a máscara cubra todo o elemento */
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
@@ -661,7 +658,7 @@ span {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    gap: 80px; /* Distância suave entre texto e terminal */
+    gap: 80px;
     width: 100%;
 }
 
@@ -874,9 +871,9 @@ span {
     box-shadow:
       0 0 0 0 #000,
       0 0 0 4px #2c2142,
-      16px 0 #ffaa00,  /* amarelo */
-      32px 0 #00d26a;  /* verde */
-    background: #ff4c4c; /* vermelho */
+      16px 0 #ffaa00,  
+      32px 0 #00d26a;  
+    background: #ff4c4c; 
 }
 
 .terminal-body {
