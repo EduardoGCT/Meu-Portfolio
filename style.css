@@ -1168,6 +1168,11 @@ span {
     justify-content: flex-start;
 }
 
+.project-btn{
+    display: flex;
+    gap: 10px;
+}
+
 .project-title {
     font-size: 2.4rem;
     color: #ffffff;
