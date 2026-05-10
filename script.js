@@ -113,6 +113,31 @@ projectRows.forEach((row) => {
 syncProjectAccordion();
 projectAccordionQuery.addEventListener('change', syncProjectAccordion);
 
+const clearProjectFocus = (row) => {
+    const activeEl = document.activeElement;
+    if (activeEl && row.contains(activeEl)) {
+        activeEl.blur();
+    }
+};
+
+projectRows.forEach((row) => {
+    row.addEventListener('mouseleave', () => {
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            clearProjectFocus(row);
+        }
+    });
+});
+
+document.querySelectorAll('.project-link').forEach((link) => {
+    link.addEventListener('click', () => {
+        setTimeout(() => link.blur(), 0);
+    });
+});
+
+window.addEventListener('blur', () => {
+    projectRows.forEach((row) => clearProjectFocus(row));
+});
+
 // Animacoes de entrada (uma vez por elemento)
 document.body.classList.add('js-enabled');
 
