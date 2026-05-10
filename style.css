@@ -808,7 +808,7 @@ span {
 
 .sobre-estudos-list li {
     background: #34026e;
-    border: 1px solid rgba(119, 0, 255, 0.5);
+    border: 1px solid #000;
     color: #ffffff;
     padding: 6px 16px;
     border-radius: 999px;
